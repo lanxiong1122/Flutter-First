@@ -30,10 +30,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   final List<Widget> _pages = [
-    Center(child: Text('Tab 1 Content')),
-    Center(child: Text('Tab 2 Content')),
-    Center(child: Text('Tab 3 Content')),
-    Center(child: Text('Tab 4 Content')),
+    const Center(child: Text('Tab 1 Content',style: TextStyle(fontSize: 50,color: Colors.green),)),
+    const Center(child: Text('Tab 2 Content')),
+    const Center(child: Text('Tab 3 Content')),
+    const Center(child: Text('Tab 4 Content',style: TextStyle(fontSize: 35,color: Colors.blue),)),
   ];
 
   final PageController _pageController = PageController(initialPage: 0);
@@ -53,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // ),
       body: PageView(
         controller: _pageController,
+        //physics: const NeverScrollableScrollPhysics(),  // 禁止左后滑动
         onPageChanged: (int index) {
           setState(() {
             _selectedIndex = index;
