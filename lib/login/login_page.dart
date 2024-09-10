@@ -1,5 +1,7 @@
+//import 'package:first_pe/home/home_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 
@@ -16,11 +18,16 @@ class LoginPageState extends State<LoginPage> {
   String _username = '';
   String _password = '';
   String _appName  = '登录';
+  final TextEditingController _passwordController = TextEditingController();
 
     @override
     void initState() {
         super.initState();
         _fetchAppName();
+        _passwordController.addListener(() {
+          // 当文本变化时，调用 setState 来重新构建
+          setState(() {});
+        });
     }
 
     Future<void> _fetchAppName() async {
@@ -51,7 +58,7 @@ class LoginPageState extends State<LoginPage> {
               TextFormField(
                   decoration: InputDecoration(
                     labelText: '用户名',
-                    labelStyle: const TextStyle(fontSize: 16, color: Color(0xFF309333)),
+                    labelStyle: const TextStyle(fontSize: 16, color: Color(0xbb333333)),
                     //hintText: '用户名',
                     //hintStyle: const TextStyle(fontSize: 16, color: Color(0xFF309333)),
                     filled: true, // 设置 filled 为 true 并指定 fillColor 为淡蓝色背景
@@ -64,6 +71,7 @@ class LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(20), // 圆角
                       borderSide: const BorderSide(color: Colors.green, width: 2), // 聚焦时的绿色边框
                     ),
+                    errorStyle: const TextStyle(color: Colors.red), // 设置验证错误消息为蓝色
                   ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -74,13 +82,15 @@ class LoginPageState extends State<LoginPage> {
                 onSaved: (value) =>{
                   if (value != null) {
                     _username = value,
-                 }}
+                 }},
+                cursorColor: Colors.blue, // 设置光标颜色为红色
               ),
               const SizedBox(height: 16),
               TextFormField(
+                controller: _passwordController, // 使用控制器
                 decoration: InputDecoration(
                   labelText: '密码',
-                  labelStyle: const TextStyle(fontSize: 16, color: Color(0xFF309333)),
+                  labelStyle: const TextStyle(fontSize: 16, color: Color(0xbb333333)),
                   //hintText: '用户名',
                   //hintStyle: const TextStyle(fontSize: 16, color: Color(0xFF309333)),
                   filled: true, // 设置 filled 为 true 并指定 fillColor 为淡蓝色背景
@@ -93,8 +103,22 @@ class LoginPageState extends State<LoginPage> {
                     borderRadius: BorderRadius.circular(20), // 圆角
                     borderSide: const BorderSide(color: Colors.green, width: 2), // 聚焦时的绿色边框
                   ),
+                  suffixIcon: _passwordController.text.isNotEmpty
+                      ?GestureDetector(
+                      onTap: (){
+                    // 清空输入框
+                    FocusScope.of(context).unfocus();
+                    // 这里可以使用控制器来清空文本框内容
+                    _passwordController.clear();
+                  },
+                      //child:Icon(Icons.clear, color: Colors.grey[400])
+                      child:SvgPicture.asset('assets/svg/clear.svg',color: Colors.grey[400], width: 8, height: 8,)
+                      //child:Image.asset('assets/images/clear.png', width: 8, height: 8)
+                  ) : null,
+                  errorStyle: const TextStyle(color: Colors.red), // 设置验证错误消息为蓝色
                 ),
                 obscureText: true,
+                keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return '请输入密码';
@@ -102,6 +126,7 @@ class LoginPageState extends State<LoginPage> {
                   return null;
                 },
                 onSaved: (value) => _password = value!,
+                cursorColor: Colors.blue, // 设置光标颜色为红色
               ),
               const SizedBox(height: 16.0),
               SizedBox(
@@ -115,7 +140,8 @@ class LoginPageState extends State<LoginPage> {
                       if (kDebugMode) {
                         print('用户名: $_username, 密码: $_password');
                       }
-                      Navigator.pushReplacementNamed(context,'/home'); // 跳转到首页
+                      Navigator.pushReplacementNamed(context,'/home'); // 跳转到首页,销毁
+                      //Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage(title: "---")),); // 跳转，返回回到当前
                     }
                   },
                   style: ElevatedButton.styleFrom(
@@ -143,5 +169,10 @@ class LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+  @override
+  void dispose() {
+    _passwordController.dispose();
+    super.dispose();
   }
 }
