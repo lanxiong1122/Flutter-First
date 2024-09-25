@@ -1,3 +1,4 @@
+import 'package:first_pe/home/tab/home_tab.dart';
 import 'package:flutter/material.dart';
 
 
@@ -14,7 +15,8 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   final List<Widget> _pages = [
-    const Center(child: Text('Tab 1 Content',style: TextStyle(fontSize: 50,color: Colors.green),)),
+    //const Center(child: Text('Tab 1 Content',style: TextStyle(fontSize: 50,color: Colors.green),)),
+    const HomeTab(),
     const Center(child: Text('Tab 2 Content')),
     const Center(child: Text('Tab 3 Content')),
     const Center(child: Text('Tab 4 Content',style: TextStyle(fontSize: 35,color: Colors.blue),)),
