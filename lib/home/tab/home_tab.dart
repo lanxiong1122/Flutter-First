@@ -12,7 +12,10 @@ List<ItemBean> _items = [
   ItemBean('Item 1', 'https://img2.baidu.com/it/u=3402688989,1564419070&fm=253&fmt=auto&app=138&f=JPEG?w=1140&h=641'),
   ItemBean('Item 2', 'https://img2.baidu.com/it/u=379661729,419280021&fm=253&fmt=auto&app=138&f=JPEG?w=803&h=500'),
   ItemBean('Item 3', 'https://img2.baidu.com/it/u=286024229,2201233556&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=282'),
-  ItemBean('Item 4', 'https://img0.baidu.com/it/u=2801517654,3834935619&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=333')
+  ItemBean('Item 4', 'https://img0.baidu.com/it/u=2801517654,3834935619&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=333'),
+  ItemBean('Item 5', 'https://img1.baidu.com/it/u=1106636869,993472278&fm=253&fmt=auto&app=138&f=JPEG?w=690&h=456'),
+  ItemBean('Item 6', 'https://img1.baidu.com/it/u=1371431245,3959287893&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=281'),
+  ItemBean('Item 7', 'https://img1.baidu.com/it/u=4012821893,450077572&fm=253&fmt=auto&app=138&f=JPEG?w=1024&h=397')
   // 添加更多的item...
 ];
 
@@ -67,23 +70,45 @@ class HomeTabState extends State<HomeTab> with TickerProviderStateMixin {
               controller: _controller,
               itemCount: _items.length,
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6.0), // 左右间距
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16.0), // 圆角
-                    child: Image.network(
-                      _items[index].imageUrl,
-                      fit: BoxFit.cover,
-                      loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
-                        if (loadingProgress == null) return child;
-                        return Center(
-                          child: CircularProgressIndicator(
-                            value: loadingProgress.expectedTotalBytes != null
-                                ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
-                                : null,
-                          ),
+                return GestureDetector(
+                  onTap: () {
+                    // 弹出对话框显示当前是第几个Item
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('提示'),
+                          content: Text('您点击了第 ${index + 1} 个Item'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('关闭'),
+                            ),
+                          ],
                         );
                       },
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6.0), // 左右间距
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16.0), // 圆角
+                      child: Image.network(
+                        _items[index].imageUrl,
+                        fit: BoxFit.cover,
+                        loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return Center(
+                            child: CircularProgressIndicator(
+                              value: loadingProgress.expectedTotalBytes != null
+                                  ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                                  : null,
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 );
