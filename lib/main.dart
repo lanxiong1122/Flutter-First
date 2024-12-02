@@ -1,5 +1,6 @@
 import 'package:first_pe/home/home_page.dart';
 import 'package:first_pe/login/login_page.dart';
+import 'package:first_pe/setting/setting_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
           '/': (context) => const LoginPage(),
-          '/home':(context) => const HomePage(title: "Flutter Bottom Navigation with PageView")
+          '/home':(context) => const HomePage(title: "Flutter Bottom Navigation with PageView"),
+          '/setting': (context) => const SettingPage()
       },
     );
   }

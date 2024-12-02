@@ -1,4 +1,6 @@
 import 'package:first_pe/home/tab/home_tab.dart';
+import 'package:first_pe/home/tab/school_tab.dart';
+import 'package:first_pe/setting/setting_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -17,9 +19,11 @@ class HomePageState extends State<HomePage> {
   final List<Widget> _pages = [
     //const Center(child: Text('Tab 1 Content',style: TextStyle(fontSize: 50,color: Colors.green),)),
     const HomeTab(),
-    const Center(child: Text('Tab 2 Content')),
+    //const Center(child: Text('Tab 2 Content')),
+    const SchoolTab(),
     const Center(child: Text('Tab 3 Content')),
-    const Center(child: Text('Tab 4 Content',style: TextStyle(fontSize: 35,color: Colors.blue),)),
+    const SettingPage(),
+    //const Center(child: Text('Tab 4 Content',style: TextStyle(fontSize: 35,color: Colors.blue),)),
   ];
 
   final PageController _pageController = PageController(initialPage: 0);
