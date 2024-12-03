@@ -2,6 +2,7 @@ import 'package:first_pe/home/tab/home_tab.dart';
 import 'package:first_pe/home/tab/school_tab.dart';
 import 'package:first_pe/setting/setting_page.dart';
 import 'package:flutter/material.dart';
+import '../video/video_url_player.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -21,7 +22,8 @@ class HomePageState extends State<HomePage> {
     const HomeTab(),
     //const Center(child: Text('Tab 2 Content')),
     const SchoolTab(),
-    const Center(child: Text('Tab 3 Content')),
+    //const Center(child: Text('Tab 3 Content')),
+    VideoUrlPlayer(videoUrl: "http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8"),
     const SettingPage(),
     //const Center(child: Text('Tab 4 Content',style: TextStyle(fontSize: 35,color: Colors.blue),)),
   ];
@@ -67,7 +69,7 @@ class HomePageState extends State<HomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.nightlife),
-            label: 'Night Life',
+            label: 'Mine',
           ),
         ],
         currentIndex: _selectedIndex,

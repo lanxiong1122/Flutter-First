@@ -152,7 +152,7 @@ class HomeTabState extends State<HomeTab> with TickerProviderStateMixin {
                     },
                   ),
                 ),
-                VerticalDivider(),
+                const VerticalDivider(width: 2.0,color: Color(0xFF000000),),
                 Expanded(
                   child: ListView.builder(
                     itemCount: 10,
