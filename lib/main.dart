@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         //primarySwatch: Colors.blue,
       ),
       //home: HomePage(title: 'Flutter Bottom Navigation with PageView'),
-      initialRoute: '/',
+      initialRoute: '/home',
       routes: {
           '/': (context) => const LoginPage(),
           '/home':(context) => const HomePage(title: "Flutter Bottom Navigation with PageView"),

@@ -1,7 +1,6 @@
 //import 'package:first_pe/home/home_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 
@@ -112,8 +111,8 @@ class LoginPageState extends State<LoginPage> {
                     _passwordController.clear();
                   },
                       //child:Icon(Icons.clear, color: Colors.grey[400])
-                      child:SvgPicture.asset('assets/svg/clear.svg',color: Colors.grey[400], width: 8, height: 8,)
-                      //child:Image.asset('assets/images/clear.png', width: 8, height: 8)
+                      //child:SvgPicture.asset('assets/svg/clear.svg',color: Colors.grey[400], width: 8, height: 8,)
+                      child:Image.asset('assets/images/clear.png', width: 8, height: 8)
                   ) : null,
                   errorStyle: const TextStyle(color: Colors.red), // 设置验证错误消息为蓝色
                 ),

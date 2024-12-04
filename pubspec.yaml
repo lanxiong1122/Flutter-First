@@ -11,8 +11,9 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.8
   package_info_plus: ^8.0.2
-  flutter_svg: ^0.22.0
+  #flutter_svg: ^0.22.0
   video_player: ^2.4.0
+  chewie: ^1.4.1 #视频播放器
 
 dev_dependencies:
   flutter_test:

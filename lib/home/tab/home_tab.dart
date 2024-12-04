@@ -60,7 +60,9 @@ class HomeTabState extends State<HomeTab> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home Tab')),
+      appBar: AppBar(
+          automaticallyImplyLeading: false, // 禁用自动返回按钮
+          title: Text('Home Tab')),
       body: Column(
         children: <Widget>[
           // 轮播图部分

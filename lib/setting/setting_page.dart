@@ -16,6 +16,7 @@ class _SettingPageState extends State<SettingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false, // 禁用自动返回按钮
         title: Text('设置'),
       ),
       body: ListView(

@@ -3,6 +3,7 @@ import 'package:first_pe/home/tab/school_tab.dart';
 import 'package:first_pe/setting/setting_page.dart';
 import 'package:flutter/material.dart';
 import '../video/video_url_player.dart';
+import '../video/video_url_player_custom.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -21,9 +22,11 @@ class HomePageState extends State<HomePage> {
     //const Center(child: Text('Tab 1 Content',style: TextStyle(fontSize: 50,color: Colors.green),)),
     const HomeTab(),
     //const Center(child: Text('Tab 2 Content')),
-    const SchoolTab(),
-    //const Center(child: Text('Tab 3 Content')),
-    VideoUrlPlayer(videoUrl: "http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8"),
+    //const SchoolTab(),
+    //VideoUrlPlayer(videoUrl: "https://media.w3.org/2010/05/sintel/trailer.mp4"),
+    VideoUrlPlayer(videoUrl: "http://xcxx.daoran.tv/34638a271c9b47ebb5d10a6b04931b5b/011f2a8d55c9d75cccd559a9f2264efe-hd-nbv1.m3u8?auth_key=1733305003-54db7009bea849399998fde1dd99f420-0-04de969135f9bc1e015fce7a7ed456de"),
+    VideoUrlPlayerCustom(videoUrl: "http://xcxx.daoran.tv/34638a271c9b47ebb5d10a6b04931b5b/011f2a8d55c9d75cccd559a9f2264efe-hd-nbv1.m3u8?auth_key=1733305003-54db7009bea849399998fde1dd99f420-0-04de969135f9bc1e015fce7a7ed456de"),
+    //VideoUrlPlayerCustom(videoUrl: "https://media.w3.org/2010/05/sintel/trailer.mp4"),
     const SettingPage(),
     //const Center(child: Text('Tab 4 Content',style: TextStyle(fontSize: 35,color: Colors.blue),)),
   ];
