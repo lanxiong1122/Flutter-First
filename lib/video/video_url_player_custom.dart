@@ -306,8 +306,8 @@ class _VideoUrlPlayerCustomState extends State<VideoUrlPlayerCustom> {
           });
         },
         thumbColor: Colors.white,
-        activeColor: Colors.white,
-        inactiveColor: Colors.grey,
+        activeColor: Colors.blue,
+        inactiveColor: Colors.blue.shade100,
         overlayColor: MaterialStateProperty.all(Colors.white.withOpacity(0.3)),
       ),
     );

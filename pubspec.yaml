@@ -14,6 +14,7 @@ dependencies:
   #flutter_svg: ^0.22.0
   video_player: ^2.4.0
   chewie: ^1.4.1 #视频播放器
+  webview_flutter: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -22,4 +23,5 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/go.html
     - assets/images/

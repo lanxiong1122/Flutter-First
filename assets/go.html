@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Go 页面</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+    <h1>欢迎来到 Go 页面</h1>
+    <p>这个页面是从本地资产加载的。</p>
+    <button id="send-message-btn">发送非json消息到 Flutter</button>
+    <button onclick="callFlutterMethodWithComplexData()">发送json消息到调用flutter</button>
+</div>
+
+<script type="text/javascript">
+  // 确保 WebView 插件可用，并设置通信通道
+  if (window.GoChannel) {
+    const goChannel = window.GoChannel;
+
+    // 发送普通消息到 Flutter
+    document.getElementById('send-message-btn').addEventListener('click', () => {
+      goChannel.postMessage('来自 HTML 的消息！');
+    });
+
+    // flutter调用此方法
+    // 监听来自 Flutter 的消息，并显示弹窗
+    window.addEventListener('message', (event) => {
+      alert(`收到来自 Flutter 的消息: ${event.data}`);
+    });
+  } else {
+    console.warn('Toaster JavaScript 通道不可用');
+  }
+  // 定义一个showCustomAlert方法，flutter调用此方法
+  function showCustomAlert(jsonData) {
+    try {
+      // 检查 jsonData 是否为空、null 或 undefined
+      if (jsonData === undefined || jsonData === null || jsonData.trim() === '') {
+        console.warn('Received invalid or empty JSON data.');
+        alert(`Custom Alert: 无参`);
+        return;
+      }
+
+      // 将 JSON 字符串解析为 JavaScript 对象
+      const data = JSON.parse(jsonData);
+
+      // 检查是否包含 message 属性
+      if (data.message) {
+        alert(`Custom Alert: ${data.message}`);
+      } else {
+        console.warn('Received JSON does not contain a "message" field.');
+      }
+    } catch (error) {
+      console.error('Error parsing JSON:', error);
+    }
+  }
+  // js调用flutter方法
+  function callFlutterMethodWithComplexData() {
+   const data = {
+      methodName: 'openMap', // 方法名
+      args: {
+        message: 'Hello from JavaScript!',
+        timestamp: new Date().toISOString(),
+        allData: 'This is some extra information.'
+      }
+    };
+    // 将数据序列化为 JSON 字符串并传递给 Flutter
+    window.GoChannel.postMessage(JSON.stringify(data));
+  }
+</script>
+</body>
+</html>

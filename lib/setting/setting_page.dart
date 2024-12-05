@@ -66,7 +66,23 @@ class _SettingPageState extends State<SettingPage> {
             icon: Icons.help_outline,
             title: '帮助与反馈',
             onTap: () {
-              Navigator.pushNamed(context, '/helpAndFeedback');
+              Navigator.pushNamed(context, '/help');
+            },
+          ),
+      Divider(),
+      CustomSettingItem(
+        icon: Icons.local_activity,
+        title: '本地Webview（js交互）',
+        onTap: () {
+          Navigator.pushNamed(context, '/webview', arguments: {'htmlAssetPath': 'assets/go.html'});
+        },
+      ),
+          Divider(),
+          CustomSettingItem(
+            icon: Icons.local_activity,
+            title: '链接Webview',
+            onTap: () {
+              Navigator.pushNamed(context, '/webview', arguments: {'url': 'https://www.jd.com'});
             },
           ),
           // 可以继续添加更多设置项
@@ -106,7 +122,7 @@ class CustomSettingItem extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(left: 12.0),
-                child: Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                child: Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500,color: Colors.black)),
               ),
             ),
             Padding(
