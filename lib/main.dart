@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
         //primarySwatch: Colors.blue,
       ),
       //home: HomePage(title: 'Flutter Bottom Navigation with PageView'),
-      initialRoute: '/home',
+      initialRoute: '/',
       routes: {
-          '/': (context) => const LoginPage(),
-          '/home':(context) => const HomePage(title: "Flutter Bottom Navigation with PageView"),
+          '/login': (context) => const LoginPage(),
+          '/':(context) => const HomePage(title: "Flutter Bottom Navigation with PageView"),
           '/setting': (context) => const SettingPage()
       },
     );

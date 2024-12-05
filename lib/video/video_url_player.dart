@@ -86,6 +86,7 @@ class _VideoUrlPlayerState extends State<VideoUrlPlayer> {
           children: <Widget>[
             Container(height: MediaQuery.of(context).padding.top,color: Colors.black), // 确保状态栏有空间
             Container(
+              width: MediaQuery.of(context).size.width,
               height: 200, // 设置播放器高度为200
               child: _videoPlayerController.value.isInitialized
                   ? Chewie(controller: _chewieController!)
