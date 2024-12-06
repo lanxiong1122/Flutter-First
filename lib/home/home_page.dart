@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../video/video_url_player.dart';
 import '../video/video_url_player_custom.dart';
 
-
+// 主页  多个tab
 class HomePage extends StatefulWidget {
    //const HomePage({Key? key, required this.title}) : super(key: key);
    const HomePage({super.key, required this.title});
@@ -24,8 +24,6 @@ class HomePageState extends State<HomePage> {
     //const Center(child: Text('Tab 2 Content')),
     //const SchoolTab(),
     VideoUrlPlayer(videoUrl: "https://media.w3.org/2010/05/sintel/trailer.mp4"),
-    //VideoUrlPlayer(videoUrl: "http://xcxx.daoran.tv/sv/341fedb0-1934cc8c0f9/341fedb0-1934cc8c0f9.m3u8?auth_key=1733366422-bfb09c7fd0404ecd8e9087cd08d391ed-0-8f28a8740e36e6d21e3ced6f03f7c099"),
-    //VideoUrlPlayerCustom(videoUrl: "http://xcxx.daoran.tv/sv/341fedb0-1934cc8c0f9/341fedb0-1934cc8c0f9.m3u8?auth_key=1733366422-bfb09c7fd0404ecd8e9087cd08d391ed-0-8f28a8740e36e6d21e3ced6f03f7c099"),
     VideoUrlPlayerCustom(videoUrl: "https://media.w3.org/2010/05/sintel/trailer.mp4"),
     const SettingPage(),
     //const Center(child: Text('Tab 4 Content',style: TextStyle(fontSize: 35,color: Colors.blue),)),

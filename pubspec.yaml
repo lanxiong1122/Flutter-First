@@ -12,9 +12,12 @@ dependencies:
   cupertino_icons: ^1.0.8
   package_info_plus: ^8.0.2
   #flutter_svg: ^0.22.0
-  video_player: ^2.4.0
+  video_player: ^2.4.0 #视频播放器
   chewie: ^1.4.1 #视频播放器
-  webview_flutter: ^4.0.0
+  webview_flutter: ^4.0.0 #webview
+  share_plus: ^10.1.2    #分享
+  file_selector: ^1.0.3  #管理文件和与文件对话框交互.// Using `package:file_selector` on windows, macos & Linux, since `package:image_picker` is not supported.
+  image_picker: ^1.1.2   #图片选择器
 
 dev_dependencies:
   flutter_test:

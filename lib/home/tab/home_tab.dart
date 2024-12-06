@@ -18,7 +18,7 @@ List<ItemBean> _items = [
   ItemBean('Item 7', 'https://img1.baidu.com/it/u=4012821893,450077572&fm=253&fmt=auto&app=138&f=JPEG?w=1024&h=397')
   // 添加更多的item...
 ];
-
+/// Home Tab
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
 

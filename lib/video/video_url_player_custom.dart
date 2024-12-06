@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:flutter/services.dart';
-
+/// 自定义Chewie播放器
 class VideoUrlPlayerCustom extends StatefulWidget {
   final String videoUrl;
   final VoidCallback? onNext;

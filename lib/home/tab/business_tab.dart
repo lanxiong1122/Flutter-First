@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// author lanxiong
-/// date 
-/// describe：
-
+/// Business Tab
 class BusinessTab extends StatefulWidget {
   BusinessTab({required Key key}) : super(key: key);
 

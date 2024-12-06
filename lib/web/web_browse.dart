@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter/services.dart'; // For rootBundle
 import 'dart:convert'; // 确保导入此包
-
+/// 封装webview 只支持Android & iOS。提供js交互。
 class WebBrowse extends StatefulWidget {
   final String? htmlAssetPath; // 可选的本地HTML资产路径
   final String? url; // 可选的URL
@@ -161,9 +161,7 @@ class _WebBrowseState extends State<WebBrowse> {
                   Navigator.of(context).pop();
                   // 这里你可以实现分享逻辑
                   print("WebBrowse-分享按钮被点击");
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("分享")),
-                  );
+                  Navigator.pushNamed(context,'/share');
                 },
               ),
             ],
@@ -225,24 +223,24 @@ class _WebBrowseState extends State<WebBrowse> {
                       icon: Icon(Icons.send, color: Colors.black),
                       onPressed: () {
                         if (_isWebViewReady) {
-                          // 方法一：发送消息到 JavaScript
-                          /*_controller.runJavaScriptReturningResult('''
+                          // 方法一：调用js的方法。有返回是否成功状态
+                          _controller.runJavaScriptReturningResult('''
                             window.postMessage('Hello from Flutter!', '*');
                           ''').then((result) {
-                            print("WebBrowse-Sent message to WebView: Hello from Flutter!');
+                            print('WebBrowse-Sent message to WebView: Hello from Flutter!');
                           }).catchError((error) {
-                            print("WebBrowse-Failed to send message to WebView: $error');
-                          });*/
+                            print('WebBrowse-Failed to send message to WebView: $error');
+                          });
 
                           // 方法二：调用js的showCustomAlert方法，可有参数和无参数
                           //callJsFunction('showCustomAlert');
                           // 创建一个包含多个字段的 Map
-                          final Map<String, dynamic> alertParams = {
+                          /*final Map<String, dynamic> alertParams = {
                             'message': 'Hello from Flutter!',
                             'timestamp': DateTime.now().toIso8601String(),
                             'additionalInfo': 'This is some extra information.'
                           };
-                          callJsFunction('showCustomAlert', params: alertParams);
+                          callJsFunction('showCustomAlert', params: alertParams);*/
                         }
                       },
                     ),

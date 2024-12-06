@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// author lanxiong
-/// date 
-/// describe：
+/// School Tab
 
 class SchoolTab extends StatefulWidget {
   const SchoolTab({super.key});
