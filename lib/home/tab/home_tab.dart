@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:flutter_toastr/flutter_toastr.dart';
 
 class ItemBean {
   final String title;
@@ -146,10 +147,15 @@ class HomeTabState extends State<HomeTab> with TickerProviderStateMixin {
               children: <Widget>[
                 Expanded(
                   child: ListView.builder(
-                    itemCount: 10,
+                    itemCount: 100,
                     itemBuilder: (context, index) {
                       return ListTile(
                         title: Text('Item $index'),
+                        onTap: ()=>{
+                        //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('You clicked on item $index')))
+
+                          FlutterToastr.show('You clicked on item $index', context, duration: FlutterToastr.lengthShort, position:  FlutterToastr.center)
+                      },
                       );
                     },
                   ),
@@ -157,10 +163,13 @@ class HomeTabState extends State<HomeTab> with TickerProviderStateMixin {
                 const VerticalDivider(width: 2.0,color: Color(0xFF000000),),
                 Expanded(
                   child: ListView.builder(
-                    itemCount: 10,
+                    itemCount: 100,
                     itemBuilder: (context, index) {
                       return ListTile(
                         title: Text('Item $index'),
+                        onTap: ()=>{
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('You clicked on item $index')))
+                        },
                       );
                     },
                   ),
