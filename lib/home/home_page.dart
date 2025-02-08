@@ -1,7 +1,9 @@
+import 'package:first_pe/advertise/show_ad.dart';
 import 'package:first_pe/home/tab/home_tab.dart';
 import 'package:first_pe/home/tab/school_tab.dart';
 import 'package:first_pe/setting/setting_page.dart';
 import 'package:flutter/material.dart';
+import '../advertise/show_ad.dart';
 import '../video/video_url_player.dart';
 import '../video/video_url_player_custom.dart';
 
@@ -23,7 +25,8 @@ class HomePageState extends State<HomePage> {
     const HomeTab(),
     //const Center(child: Text('Tab 2 Content')),
     //const SchoolTab(),
-    VideoUrlPlayer(videoUrl: "https://media.w3.org/2010/05/sintel/trailer.mp4"),
+    const ShowAd(),
+    //VideoUrlPlayer(videoUrl: "https://media.w3.org/2010/05/sintel/trailer.mp4"),
     VideoUrlPlayerCustom(videoUrl: "https://media.w3.org/2010/05/sintel/trailer.mp4"),
     const SettingPage(),
     //const Center(child: Text('Tab 4 Content',style: TextStyle(fontSize: 35,color: Colors.blue),)),
