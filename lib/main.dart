@@ -5,11 +5,21 @@ import 'package:first_pe/setting/setting_page.dart';
 import 'package:first_pe/web/share_page.dart';
 import 'package:first_pe/web/web_browse.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'advertise/show_ad.dart';
+import 'constant/InitStateModel.dart';
 
+// void main() {
+//   runApp(MyApp());
+// }
 void main() {
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => InitStateModel(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

@@ -20,6 +20,7 @@ dependencies:
   image_picker: ^1.1.2   #图片选择器
   flutter_toastr: ^1.0.3
   flutter_unionad: ^2.1.2
+  provider: ^6.0.0
 
 dev_dependencies:
   flutter_test:
