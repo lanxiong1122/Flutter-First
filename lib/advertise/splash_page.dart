@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_unionad/flutter_unionad.dart';
 import 'package:provider/provider.dart';
 import '../constant/InitStateModel.dart';
+import 'package:flutter/foundation.dart';
 
 /// 描述：开屏广告页
 
@@ -23,24 +24,30 @@ class SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Provider.of<InitStateModel>(context).isInit?Column(
+    // 检查是否为 Android 或 iOS 平台
+    bool isAndroidOrIOS = defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS;
+    // 如果不是 Android 或 iOS 平台，在首次构建时执行跳转
+    if (!isAndroidOrIOS) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          Navigator.of(context).pushReplacementNamed('/home');
+        }
+      });
+      // 返回一个空的 Container 或者加载指示器
+      return Container();
+    }
+    // 如果是 Android 或 iOS 平台，根据广告初始化状态返回不同的 UI
+    return Provider.of<InitStateModel>(context).isInit ? Column(
       children: [
         Offstage(
           offstage: _offstage,
           child: FlutterUnionadSplashAdView(
-            //android 开屏广告广告id 必填 889033013 102729400
             androidCodeId: "102729400",
-            //ios 开屏广告广告id 必填
             iosCodeId: "102729400",
-            //是否支持 DeepLink 选填
             supportDeepLink: true,
-            // 期望view 宽度 dp 选填
             width: MediaQuery.of(context).size.width,
-            //期望view高度 dp 选填
             height: MediaQuery.of(context).size.height,
-            //是否影藏跳过按钮(当影藏的时候显示自定义跳过按钮) 默认显示
             hideSkip: false,
-            //超时时间
             timeout: 3000,
             callBack: FlutterUnionadSplashCallBack(
               onShow: () {
@@ -52,28 +59,25 @@ class SplashPageState extends State<SplashPage> {
               },
               onFail: (error) {
                 print("开屏广告失败 $error");
-                //Navigator.pop(context);
-                if(mounted) {
+                if (mounted) {
                   Navigator.of(context).pushReplacementNamed('/home');
                 }
               },
               onFinish: () {
                 print("开屏广告倒计时结束");
-                //Navigator.pop(context);
-                if(mounted) {
+                if (mounted) {
                   Navigator.of(context).pushReplacementNamed('/home');
                 }
               },
               onSkip: () {
                 print("开屏广告跳过");
-                //Navigator.pop(context);
-                if(mounted) {
+                if (mounted) {
                   Navigator.of(context).pushReplacementNamed('/home');
                 }
               },
               onTimeOut: () {
                 print("开屏广告超时");
-                if(mounted) {
+                if (mounted) {
                   Navigator.of(context).pushReplacementNamed('/home');
                 }
               },
@@ -81,11 +85,12 @@ class SplashPageState extends State<SplashPage> {
           ),
         ),
       ],
-    ):Container(
-      color: Colors.green ,
+    ) : Container(
+      color: Colors.green,
       width: MediaQuery.of(context).size.width,
-      //期望view高度 dp 选填
-      height: MediaQuery.of(context).size.height,child: const Text("广告初始化中"),);
+      height: MediaQuery.of(context).size.height,
+      child: const Text("广告初始化中"),
+    );
   }
   //初始化广告
   void _initRegister() async {
