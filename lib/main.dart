@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'advertise/show_ad.dart';
+import 'advertise/splash_page.dart';
 import 'constant/InitStateModel.dart';
 
 // void main() {
@@ -34,8 +35,9 @@ class MyApp extends StatelessWidget {
       //home: HomePage(title: 'Flutter Bottom Navigation with PageView'),
       initialRoute: '/',
       routes: {
+          '/': (context) => const SplashPage(),
           '/login': (context) => const LoginPage(),
-          '/':(context) => const HomePage(title: "Flutter Bottom Navigation with PageView"),
+          '/home':(context) => const HomePage(title: "Flutter Bottom Navigation with PageView"),
           '/setting': (context) => const SettingPage(),
           '/share': (context) => const SharePage(),
           '/webview': (context) => WebBrowse.fromArguments(ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?),
