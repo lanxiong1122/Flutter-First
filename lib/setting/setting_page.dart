@@ -24,15 +24,15 @@ class _SettingPageState extends State<SettingPage> {
         children: <Widget>[
           CustomSettingItem(
             icon: Icons.account_circle,
-            title: '账户设置',
+            title: 'appbar联动效果',
             onTap: () {
-              Navigator.pushNamed(context, '/accountSettings');
+              Navigator.pushNamed(context, '/appbar_effective');
             },
           ),
           Divider(),
           CustomSettingItem(
             icon: Icons.notifications,
-            title: '通知设置',
+            title: '标题悬停',
             onTap: () {
               Navigator.pushNamed(context, '/notificationSettings');
             },

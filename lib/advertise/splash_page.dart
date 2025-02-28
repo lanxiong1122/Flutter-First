@@ -85,11 +85,13 @@ class SplashPageState extends State<SplashPage> {
           ),
         ),
       ],
-    ) : Container(
-      color: Colors.green,
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      child: const Text("广告初始化中"),
+    ) : Center(
+      child: Container(
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: const Text("广告初始化中"),
+      ),
     );
   }
   //初始化广告
