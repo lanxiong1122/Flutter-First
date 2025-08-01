@@ -28,8 +28,8 @@ class _DrawFeedPageState extends State<DrawFeedPage> {
           (context, index) {
             if (index == 0) {
               return FlutterUnionadDrawFeedAdView(
-                androidCodeId: "102734241",
-                iosCodeId: "102734241",
+                androidCodeId: "969029422",
+                iosCodeId: "969029422",
                 //是否支持 DeepLink 选填
                 width: 600.5,
                 // 期望view 宽度 dp 必填
@@ -61,9 +61,9 @@ class _DrawFeedPageState extends State<DrawFeedPage> {
             }
             return Center(
               child: FlutterUnionad.drawFeedAdView(
-                androidCodeId: "102734241",
+                androidCodeId: "969029422",
                 // Android draw视屏广告id 必填
-                iosCodeId: "102734241",
+                iosCodeId: "969029422",
                 //ios draw视屏广告id 必填
                 supportDeepLink: true,
                 //是否支持 DeepLink 选填

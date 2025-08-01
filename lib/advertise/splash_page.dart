@@ -42,8 +42,8 @@ class SplashPageState extends State<SplashPage> {
         Offstage(
           offstage: _offstage,
           child: FlutterUnionadSplashAdView(
-            androidCodeId: "102729400",
-            iosCodeId: "102729400",
+            androidCodeId: "892243966",
+            iosCodeId: "892243966",
             supportDeepLink: true,
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
@@ -98,10 +98,10 @@ class SplashPageState extends State<SplashPage> {
   void _initRegister() async {
     bool init = await FlutterUnionad.register(
       //穿山甲广告 Android appid 必填
-        androidAppId: "5098580",
+        androidAppId: "5722134",
         //穿山甲广告 ios appid 必填
-        iosAppId: "5098580",
-        ohosAppId: "5638354",
+        iosAppId: "5722134",
+        ohosAppId: "5722134",
         //appname 必填
         appName: "unionad_test",
         //使用聚合功能一定要打开此开关，否则不会请求聚合广告，默认这个值为false

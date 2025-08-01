@@ -32,9 +32,9 @@ class _BannerPageState extends State<BannerPage> {
             //banner广告
             FlutterUnionadBannerView(
               //andrrid banner广告id 必填
-              androidCodeId: "102735527",
+              androidCodeId: "969029419",
               //ios banner广告id 必填
-              iosCodeId: "102735527",
+              iosCodeId: "969029419",
               // 期望view 宽度 dp 必填
               width: 600.5,
               //期望view高度 dp 必填

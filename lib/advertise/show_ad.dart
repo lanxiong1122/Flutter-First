@@ -143,7 +143,7 @@ class _ShowAdState extends State<ShowAd> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: const Text('FlutterUnionad example app'),
+        title: const Text('MyAd example app'),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -249,10 +249,10 @@ class _ShowAdState extends State<ShowAd> {
               onPressed: () {
                 FlutterUnionad.loadRewardVideoAd(
                   //是否个性化 选填
-                  androidCodeId: "102733764",
+                  androidCodeId: "969029402",
                   //Android 激励视频广告id  必填
-                  iosCodeId: "102733764",
-                  ohosCodeId: '962519282',
+                  iosCodeId: "969029402",
+                  ohosCodeId: '969029402',
                   //ios 激励视频广告id  必填
                   rewardName: "200金币",
                   //奖励名称 选填
@@ -289,10 +289,10 @@ class _ShowAdState extends State<ShowAd> {
               onPressed: () {
                 FlutterUnionad.loadFullScreenVideoAdInteraction(
                   //android 全屏广告id 必填
-                  androidCodeId: "102735530",
+                  androidCodeId: "968460474",
                   //ios 全屏广告id 必填
-                  iosCodeId: "102735530",
-                  ohosCodeId: "963135369",
+                  iosCodeId: "968460474",
+                  ohosCodeId: "968460474",
                   //视屏方向 选填
                   orientation: FlutterUnionadOrientation.VERTICAL,
                 );
